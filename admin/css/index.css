@@ -1,0 +1,10 @@
+body{
+    /* background-image: url("https://wallpaperaccess.com/full/5838278.jpg"); */
+
+    /* margin: 0; */
+    /* padding: 0; */
+    background-image: url('../img/dashboard_back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

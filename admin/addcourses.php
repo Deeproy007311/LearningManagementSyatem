@@ -43,11 +43,11 @@
                 <label for="coursename" class="form-label">Course Name</label>
                 <input type="text" class="form-control" id="coursename" name="coursename" aria-describedby="emailHelp">
             </div>
-            <div class="mb-3">
-                <label for="coursedesc" class="form-label">Course Description</label>
-                <input type="text" class="form-control" id="coursedesc" name="coursedesc">
+            <div class="form-floating">
+                <textarea class="form-control" id="coursedesc" name="coursedesc" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Comments</label>
             </div>
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-success my-3">Add</button>
         </form>
     </div>
 
