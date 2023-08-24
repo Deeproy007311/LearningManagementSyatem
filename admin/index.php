@@ -47,7 +47,7 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">45</h4>
-                        <a href="students.php" class="btn btn-success">View Courses</a>
+                        <a href="students.php" class="btn btn-success">View Students</a>
                     </div>
                 </div>
             </div>
