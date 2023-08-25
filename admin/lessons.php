@@ -12,6 +12,8 @@ if (!isset($_SESSION)) {
     <title>Admin Lessons</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -142,7 +144,7 @@ if (!isset($_SESSION)) {
     <?php
         if (isset($_SESSION['c_id'])) {
             echo '<div class="container my-5">
-            <a href="addlessons.php" class="btn btn-success box">Add Lessons</a>
+            <a href="addlessons.php" class="btn btn-success box"><i class="fa-solid fa-plus"></i></a>
         </div>';
         }
     

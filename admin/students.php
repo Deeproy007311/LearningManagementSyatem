@@ -7,6 +7,9 @@
     <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="css/restall.css"> -->
+    <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -16,13 +19,16 @@
     <?php include '../partials/_dbconnect.php';?>
     <div class="container">
         <h1>Students</h1>
-        <h1>Developing in progress</h1>
+    </div>
+    <div class="container mt-5">
+        <a href="addstudents.php" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
     </div>
 
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+
     </script>
 </body>
 
