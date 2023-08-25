@@ -18,6 +18,18 @@ if (!isset($_SESSION)) {
     <!-- Database Connection -->
     <?php include '../partials/_dbconnect.php';?>
     <?php
+    // Delete query
+    if (isset($_GET['delete'])) {
+      $sno = $_GET['delete'];
+      $sql = "DELETE FROM `lessons` WHERE `lesson_id` = $sno";
+      $result = mysqli_query($conn, $sql);
+      if ($result) {
+        $delete = true;
+      }else{
+        $deleteMsg = "We could delete the record successfully";
+      }
+
+    }
     // Update query
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['snoEdit'])) {
@@ -29,7 +41,7 @@ if (!isset($_SESSION)) {
             if ($result) {
                 $update = true;
             }else {
-                echo "We could not update the record successfully";
+                $updateMsg =  "We could not update the record successfully";
             }
         }
     } 
@@ -167,7 +179,23 @@ if (!isset($_SESSION)) {
         console.log(e.target.id);
         $('#editModal').modal('toggle');
     });
-});
+  });
+  // Delete Js
+    deletes = document.getElementsByClassName('delete');
+    Array.from(deletes).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        console.log("edit ",);
+        sno = e.target.id.substr(1,);
+
+        if (confirm("Are you sure?")) {
+          console.log("yes");
+          window.location = `lessons.php?delete=${sno}`;
+        } else {
+          console.log("No");
+        }
+      });
+    });
+
 
     </script>
 </body>
