@@ -24,6 +24,16 @@
     } else {
         $rowCount = 0;
     }
+    ?>
+    <?php
+    $query2 = "SELECT COUNT(*) as count FROM students";
+    $result2 = $conn->query($query2);
+    if ($result2->num_rows > 0) {
+        $row2 = $result2->fetch_assoc();
+        $rowCount2 = $row2["count"];
+    } else {
+        $rowCount2 = 0;
+    }
     // Close the connection
     $conn->close();
     ?>
@@ -46,7 +56,7 @@
                         Students
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">45</h4>
+                        <h4 class="card-title">Total Students: <?php echo $rowCount2; ?></h4>
                         <a href="students.php" class="btn btn-success">View Students</a>
                     </div>
                 </div>
