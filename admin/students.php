@@ -18,6 +18,18 @@
     <?php
     $update = false;
     $delete = false;
+    //Delete
+    if (isset($_GET['delete'])) {
+        $sno = $_GET['delete'];
+        $sql = "DELETE FROM `students` WHERE `student_id` = $sno";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $delete = true;
+        }else{
+            echo "We could not updated the record successfuly";
+        }
+
+    }
      // Update
      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['snoEdit'])) {
@@ -135,6 +147,22 @@
           console.log(e.target.id);
           $('#editModal').modal('toggle');
         });
+        });
+
+        // Delete js
+        deletes = document.getElementsByClassName('delete');
+        Array.from(deletes).forEach((element) => {
+        element.addEventListener("click", (e) => {
+        console.log("edit ",);
+        sno = e.target.id.substr(1,);
+
+        if (confirm("Are you sure?")) {
+          console.log("yes");
+          window.location = `students.php?delete=${sno}`;
+        } else {
+          console.log("No");
+        }
+         });
         });
       </script>
 
