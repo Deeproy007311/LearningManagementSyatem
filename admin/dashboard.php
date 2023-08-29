@@ -1,3 +1,13 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+    session_regenerate_id(true);
+    if (!isset($_SESSION['loggedin']) or $_SESSION['loggedin']!=true) {
+        header("Location: /learningmanagementsystem/admin/index.php");
+        exit;
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,7 +28,7 @@
     <?php
     $query = "SELECT COUNT(*) as count FROM courses";
     $result = $conn->query($query);
-    if ($result->num_rows > 0) {₹
+    if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $rowCount = $row["count"];
     } else {

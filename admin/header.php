@@ -1,4 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<?php
+if (isset($_SESSION['loggedin']) and $_SESSION['loggedin'] == true) {
+  $loggedin = true;
+}
+else{
+  $loggedin = false;
+}
+
+if ($loggedin) {
+  echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">E-Learning Admin Area</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +35,12 @@
         </li>
       </ul>
       <form class="d-flex">
-        <button type="button" class="btn btn-danger">Logout</button>
+      <a href="adminlogout.php" class="btn btn-danger">Logout</a>
       </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>';
+}
+      
+
+?>

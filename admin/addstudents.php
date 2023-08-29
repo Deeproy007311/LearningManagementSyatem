@@ -1,3 +1,13 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+    session_regenerate_id(true);
+    if (!isset($_SESSION['loggedin']) or $_SESSION['loggedin']!=true) {
+        header("Location: /learningmanagementsystem/admin/index.php");
+        exit;
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 
