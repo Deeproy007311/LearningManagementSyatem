@@ -19,6 +19,7 @@ if (!isset($_SESSION)) {
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
       <!-- Font Awsome -->
     <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="css/restall.css"> -->
 </head>
 
 <body>
