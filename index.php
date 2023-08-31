@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,7 +21,7 @@
         <h1 class="text-white">Online Learning Platform</h1>
         <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, expedita iusto est quos
             excepturi eius.</p>
-        <button class="button">Join For Free</button>
+        <a href="studentCourses.php" class="button btn text-center">Join for free</a>
     </div>
     <div class="container my-5">
         <h1 class="text-center text-white">Courses</h1>
