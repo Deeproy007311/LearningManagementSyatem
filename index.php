@@ -14,20 +14,20 @@ session_start();
     <link rel="stylesheet" href="userPanelCss/home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
     <script>
-        function checkLogin() {
-            $.ajax({
-                type: "POST",
-                url: "check_login.php", // Create a new PHP file for checking login status
-                dataType: "json",
-                success: function(response) {
-                    if (response.loggedin) {
-                        window.location.href = "studentCourses.php"; // Redirect if logged in
-                    } else {
-                        alert("Please log in to join for free.");
-                    }
+    function checkLogin() {
+        $.ajax({
+            type: "POST",
+            url: "check_login.php", // Create a new PHP file for checking login status
+            dataType: "json",
+            success: function(response) {
+                if (response.loggedin) {
+                    window.location.href = "studentCourses.php"; // Redirect if logged in
+                } else {
+                    alert("Please log in to join for free.");
                 }
-            });
-        }
+            }
+        });
+    }
     </script>
 </head>
 
@@ -46,7 +46,7 @@ session_start();
         <h1 class="text-center text-white">Courses</h1>
         <div class="row course-row">
             <div class="card mx-4 my-4" style="width: 18rem;">
-            <img src="https://source.unsplash.com/400x300/?programming,python" class="card-img-top" alt="...">
+                <img src="https://source.unsplash.com/400x300/?programming,python" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Python</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -55,7 +55,7 @@ session_start();
                 </div>
             </div>
             <div class="card mx-4 my-4" style="width: 18rem;">
-            <img src="https://source.unsplash.com/400x300/?programming,java" class="card-img-top" alt="...">
+                <img src="https://source.unsplash.com/400x300/?programming,java" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">java</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -64,7 +64,7 @@ session_start();
                 </div>
             </div>
             <div class="card mx-4 my-4" style="width: 18rem;">
-            <img src="https://source.unsplash.com/400x300/?programming,c" class="card-img-top" alt="...">
+                <img src="https://source.unsplash.com/400x300/?programming,c" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">C</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -72,12 +72,18 @@ session_start();
                     <a href="#" class="btn btn-primary">Start Course</a>
                 </div>
             </div>
-            
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
-    
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <!-- <a href="" class="btn btn-primary" onclick="checkLogin()">View More</a> -->
+                    <a href="studentCourses.php" class="button btn text-center" onclick="checkLogin()">View More</a>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+
 
 </body>
 

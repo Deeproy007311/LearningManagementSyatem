@@ -19,13 +19,34 @@
                 ?>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white fs-5" href="about.php">About</a>
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo '<a class="nav-link text-white fs-5" href="about.php">About</a>';
+                    }else {
+                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">About</a>';
+                    }
+                    ?>
+                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white fs-5" href="studentFeedbacks.php">Feedback</a>
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo '<a class="nav-link text-white fs-5" href="studentFeedbacks.php">Feedback</a>';
+                    }else {
+                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Feedback</a>';
+                    }
+                    ?>
+                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white fs-5" href="contact.php">Contact</a>
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo '<a class="nav-link text-white fs-5" href="contact.php">Contact</a>';
+                    }else {
+                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Contact</a>';
+                    }
+                    ?>
+                    
                 </li>
             </ul>
             <?php

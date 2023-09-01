@@ -1,3 +1,11 @@
+<?php
+session_start();
+session_regenerate_id(true);
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: index.php"); // Redirect to the index page
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
