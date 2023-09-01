@@ -2,6 +2,7 @@
 session_start();
 session_regenerate_id(true);
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // echo '<script>alert("Please login to access the courses.");</script>';
     header("Location: index.php"); // Redirect to the index page
     exit();
 }

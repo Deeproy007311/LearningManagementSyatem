@@ -10,7 +10,13 @@
                     <a class="nav-link active text-white fs-5" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white fs-5" href="studentCourses.php">Courses</a>
+                <?php
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    echo '<a class="nav-link text-white fs-5" href="studentCourses.php">Courses</a>';
+                } else {
+                    echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Courses</a>';
+                }
+                ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white fs-5" href="about.php">About</a>
@@ -38,3 +44,8 @@
         </div>
     </div>
 </nav>
+<script>
+function showAlert() {
+    alert("Please log in to access the courses.");
+}
+</script>

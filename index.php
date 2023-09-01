@@ -12,6 +12,23 @@ session_start();
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/index.css">
     <link rel="stylesheet" href="userPanelCss/home.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
+    <script>
+        function checkLogin() {
+            $.ajax({
+                type: "POST",
+                url: "check_login.php", // Create a new PHP file for checking login status
+                dataType: "json",
+                success: function(response) {
+                    if (response.loggedin) {
+                        window.location.href = "studentCourses.php"; // Redirect if logged in
+                    } else {
+                        alert("Please log in to join for free.");
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -21,7 +38,9 @@ session_start();
         <h1 class="text-white">Online Learning Platform</h1>
         <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, expedita iusto est quos
             excepturi eius.</p>
-        <a href="studentCourses.php" class="button btn text-center">Join for free</a>
+        <!-- <a href="studentCourses.php" class="button btn text-center">Join for free</a> -->
+        <a href="#" class="button btn text-center" onclick="checkLogin()">Join for free</a>
+
     </div>
     <div class="container my-5">
         <h1 class="text-center text-white">Courses</h1>
@@ -58,6 +77,8 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
+    
+
 </body>
 
 </html>
