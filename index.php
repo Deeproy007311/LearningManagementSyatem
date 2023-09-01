@@ -12,6 +12,8 @@ session_start();
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/index.css">
     <link rel="stylesheet" href="userPanelCss/home.css">
+    <!-- Font awsome -->
+    <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
     <script>
     function checkLogin() {
@@ -74,15 +76,68 @@ session_start();
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                    <!-- <a href="" class="btn btn-primary" onclick="checkLogin()">View More</a> -->
                     <a href="studentCourses.php" class="button btn text-center" onclick="checkLogin()">View More</a>
                 </div>
             </div>
-
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-        </script>
+        <!-- static information-1 -->
+        <div class="container container-info-1" style="margin-top: 83px; display: flex;">
+            <div class="container">
+                <img src="userPanelImages/index1.webp" alt="index1">
+            </div>
+            <div class="container" style="height: 324px;margin-top: 94px;">
+                <h1 class="text-white">Learner outcomes on courses you will take</h1>
+                <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
+                <p class="text-white font-weight-bold">Techniques to engage effectively with vulnerable children</p>
+                <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
+                <p class="text-white font-weight-bold">Techniques to engage effectively with vulnerable children</p>
+                <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
+                <p class="text-white font-weight-bold">Techniques to engage effectively with vulnerable children</p>
+            </div>
+        </div>
+        <!-- Feedback -->
+        <div class="container mx-auto text-center">
+            <h1 class="text-white">Top Feedbacks</h1>
+            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card-wrapper container-sm d-flex  justify-content-around">
+                            <div class="card  " style="width: 18rem;">
+                                <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+                crossorigin="anonymous">
+            </script>
 
 
 </body>
