@@ -1,29 +1,29 @@
 <nav class="navbar navbar-expand-lg bg-violet">
     <div class="container-fluid">
-        <a class="navbar-brand text-white fs-5" href="#">codeXlearns</a>
+        <a class="navbar-brand  fs-5" href="#">codeXlearns</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white fs-5" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active  fs-5" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                 <?php
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                    echo '<a class="nav-link text-white fs-5" href="studentCourses.php">Courses</a>';
+                    echo '<a class="nav-link  fs-5" href="studentCourses.php">Courses</a>';
                 } else {
-                    echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Courses</a>';
+                    echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">Courses</a>';
                 }
                 ?>
                 </li>
                 <li class="nav-item">
                     <?php
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                        echo '<a class="nav-link text-white fs-5" href="about.php">About</a>';
+                        echo '<a class="nav-link  fs-5" href="about.php">About</a>';
                     }else {
-                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">About</a>';
+                        echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">About</a>';
                     }
                     ?>
                     
@@ -31,9 +31,9 @@
                 <li class="nav-item">
                     <?php
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                        echo '<a class="nav-link text-white fs-5" href="studentFeedbacks.php">Feedback</a>';
+                        echo '<a class="nav-link  fs-5" href="studentFeedbacks.php">Feedback</a>';
                     }else {
-                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Feedback</a>';
+                        echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">Feedback</a>';
                     }
                     ?>
                     
@@ -41,9 +41,9 @@
                 <li class="nav-item">
                     <?php
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                        echo '<a class="nav-link text-white fs-5" href="contact.php">Contact</a>';
+                        echo '<a class="nav-link  fs-5" href="contact.php">Contact</a>';
                     }else {
-                        echo '<a class="nav-link text-white fs-5" href="#" onclick="showAlert()">Contact</a>';
+                        echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">Contact</a>';
                     }
                     ?>
                     

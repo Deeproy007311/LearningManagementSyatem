@@ -8,10 +8,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>codeXLearns</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="userPanelCss/index.css">
-    <link rel="stylesheet" href="userPanelCss/unpkg.com_swiper@8.1.6_swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/home.css">
     <!-- Font awsome -->
     <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
@@ -35,20 +32,22 @@ session_start();
 </head>
 
 <body>
-    <!-- Header connection -->
-    <?php include '_header.php' ?>
     <!-- Database Connection -->
     <?php include 'partials/_dbconnect.php';?>
-    <div class="container heading-container">
-        <h1 class="text-white">Online Learning Platform</h1>
-        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, expedita iusto est quos
-            excepturi eius.</p>
-        <!-- <a href="studentCourses.php" class="button btn text-center">Join for free</a> -->
-        <a href="#" class="button btn text-center" onclick="checkLogin()">Join for free</a>
+    <!-- Header connection -->
+    <?php include '_header.php' ?>
+    <div class="heading-container d-flex justify-content-center align-items-center">
+        <div class="container ">
+            <h1 class="">Online Learning Platform</h1>
+            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, expedita iusto est quos
+                excepturi eius.</p>
+            <a href="#" class="button btn text-center" onclick="checkLogin()">Join for free</a>
+        </div>
+        
 
     </div>
     <div class="container my-5">
-        <h1 class="text-center text-white">Top Courses</h1>
+        <h1 class="text-center ">Top Courses</h1>
         <div class="row course-row">
             <!-- php code -->
             <?php
@@ -63,7 +62,7 @@ session_start();
                     <div class="card-body">
                         <h5 class="card-title">'. $course_name .'</h5>
                         <p class="card-text">'. substr($course_description, 0, 40) .'...</p>
-                        <a href="#" class="btn btn-primary">Start Course</a>
+                        <a href="studentCourseDetails.php" class="btn btn-primary">Enroll</a>
                     </div>
                 </div>';
                 }
@@ -85,13 +84,13 @@ session_start();
             </div>
             <div class="col-md-6">
                 <div class="container container-info my-5">
-                    <h1 class="text-contrast text-white">Learner outcomes on courses you will take</h1>
+                    <h1 class="text-contrast ">Learner outcomes on courses you will take</h1>
                     <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
-                    <p class="text-contrast font-weight-bold text-white">Techniques to engage effectively with vulnerable children</p>
+                    <p class="text-contrast font-weight-bold ">Techniques to engage effectively with vulnerable children</p>
                     <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
-                    <p class="text-contrast font-weight-bold text-white">Techniques to engage effectively with vulnerable children</p>
+                    <p class="text-contrast font-weight-bold ">Techniques to engage effectively with vulnerable children</p>
                     <i class="fa-solid fa-check" style="color: #f2cb07;"></i>
-                    <p class="text-contrast font-weight-bold text-white">Techniques to engage effectively with vulnerable children</p>
+                    <p class="text-contrast font-weight-bold ">Techniques to engage effectively with vulnerable children</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,10 @@
 .heading-container {
-  margin-top: 200px;
+  background-image: url("https://preview.colorlib.com/theme/academia/images/bg_1.jpg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 40rem;
 }
 
 .heading-container h1 {
