@@ -1,57 +1,59 @@
-.heading-container{
-    margin-top: 200px;
+.heading-container {
+  margin-top: 200px;
 }
-.heading-container h1{
-    font-size: 47px;
+
+.heading-container h1 {
+  font-size: 47px;
 }
-.heading-container p{
-    font-size: 14px;
+
+.heading-container p {
+  font-size: 14px;
 }
+
 /* Home button */
 .button {
-    --color: #fff;
-    font-family: inherit;
-    display: inline-block;
-    width: 9em;
-    height: 2.6em;
-    line-height: 2.5em;
-    overflow: hidden;
-    margin: 20px;
-    background: gold;
-    font-size: 17px;
-    z-index: 1;
-    border-radius: 6px;
-    position: relative;
-    margin-left: 0;
-  }
-  
-  .button::before {
-    position: absolute;
-    content: "";
-    background: violet;
-    width: 150px;
-    height: 200px;
-    z-index: -1;
-    border-radius: 50%;
-  }
-  
-  .button:hover {
-    color: white;
-  }
-  
-  .button:before {
-    top: 100%;
-    left: 100%;
-    transition: .3s all;
-  }
-  
-  .button:hover::before {
-    top: -30px;
-    left: -30px;
-  }
+  --color: #fff;
+  font-family: inherit;
+  display: inline-block;
+  width: 9em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  margin: 20px;
+  background: gold;
+  font-size: 17px;
+  z-index: 1;
+  border-radius: 6px;
+  position: relative;
+  margin-left: 0;
+}
 
-  /* Cards */
-  .course-row{
-    margin-left: 153px;
-  }
-  
+.button::before {
+  position: absolute;
+  content: "";
+  background: violet;
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.button:hover {
+  color: white;
+}
+
+.button:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+.button:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+/* Cards */
+.course-row {
+  margin-left: 153px;
+}
