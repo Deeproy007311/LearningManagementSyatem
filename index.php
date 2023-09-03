@@ -10,25 +10,8 @@ session_start();
     <title>codeXLearns</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/home.css">
-    <!-- Font awsome -->
+    <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
-    <script>
-    function checkLogin() {
-        $.ajax({
-            type: "POST",
-            url: "check_login.php", // Create a new PHP file for checking login status
-            dataType: "json",
-            success: function(response) {
-                if (response.loggedin) {
-                    window.location.href = "studentCourses.php"; // Redirect if logged in
-                } else {
-                    alert("Please log in to join for free.");
-                }
-            }
-        });
-    }
-    </script>
 </head>
 
 <body>
@@ -41,35 +24,55 @@ session_start();
             <h1 class="">Online Learning Platform</h1>
             <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, expedita iusto est quos
                 excepturi eius.</p>
-            <a href="#" class="button btn text-center" onclick="checkLogin()">Join for free</a>
+            <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                // User is logged in, show "Join for free" and "View More" buttons that redirect to courses.php
+                echo '<a href="studentCourses.php" class="button btn text-center">Join for free</a>';
+            } else {
+                // User is not logged in, show an alert when clicking these buttons
+                echo '<a href="#" class="button btn text-center" onclick="showAlert()">Join for free</a>';
+            }
+            ?>
         </div>
-        
-
     </div>
     <div class="container my-5">
         <h1 class="text-center ">Top Courses</h1>
         <div class="row course-row">
             <!-- php code -->
             <?php
-                $sql = "SELECT * FROM `courses` LIMIT 3";
-                $result = mysqli_query($conn, $sql);
-                while($row = mysqli_fetch_assoc($result)){
-                    $course_id = $row['c_id'];
-                    $course_name = $row['c_name'];
-                    $course_description = $row['c_desc'];
-                    echo '<div class="card mx-4 my-4" style="width: 18rem;">
-                    <img src="https://source.unsplash.com/400x300/?'. $course_name .',code" class="card-img-top" alt="...">
+            $sql = "SELECT * FROM `courses` LIMIT 3";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $course_id = $row['c_id'];
+                $course_name = $row['c_name'];
+                $course_description = $row['c_desc'];
+                echo '<div class="card mx-4 my-4" style="width: 18rem;">
+                    <img src="https://source.unsplash.com/400x300/?' . $course_name . ',code" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">'. $course_name .'</h5>
-                        <p class="card-text">'. substr($course_description, 0, 40) .'...</p>
-                        <a href="studentCourseDetails.php" class="btn btn-primary">Enroll</a>
-                    </div>
-                </div>';
+                        <h5 class="card-title">' . $course_name . '</h5>
+                        <p class="card-text">' . substr($course_description, 0, 40) . '...</p>';
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                    // User is logged in, show "Enroll" button that redirects to studentCourseDetails.php
+                    echo '<a href="studentCourseDetails.php?course_id=' . $course_id . '" class="btn btn-primary">Enroll</a>';
+                } else {
+                    // User is not logged in, show an alert when clicking the "Enroll" button
+                    echo '<a href="#" class="btn btn-primary" onclick="showAlert()">Enroll</a>';
                 }
+                echo '</div>
+                </div>';
+            }
             ?>
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                    <a href="studentCourses.php" class="button btn text-center" onclick="checkLogin()">View More</a>
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                        // User is logged in, show "View More" button that redirects to courses.php
+                        echo '<a href="studentCourses.php" class="button btn text-center">View More</a>';
+                    } else {
+                        // User is not logged in, show an alert when clicking the "View More" button
+                        echo '<a href="#" class="button btn text-center" onclick="showAlert()">View More</a>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -97,13 +100,13 @@ session_start();
     </div>
     <!-- Feedback -->
 
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+    <script>
+        function showAlert() {
+            alert("Please log in to start you learning journey");
+        }
     </script>
 </body>
 

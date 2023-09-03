@@ -4,4 +4,5 @@
     background-repeat: no-repeat; 
     background-position: center center; 
     height: 28rem;
+    background-attachment: fixed;
 }
