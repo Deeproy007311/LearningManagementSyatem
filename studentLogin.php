@@ -41,16 +41,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="userPanelCss/index.css">
     <link rel="stylesheet" href="userPanelCss/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 </head>
 
-<body>
+<body style="background-color: #CAEDFF;">
     <div class="container d-flex justify-content-center align-items-center vh-100">
-            <form id="signupForm" class="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+            <form id="loginform" class="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <p class="title">Login</p>
             <p class="message">Login now and get full access to our app. </p>
 

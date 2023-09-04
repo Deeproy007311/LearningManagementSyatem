@@ -12,13 +12,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Courses</title>
+    <title>Watch Course</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/courseDetails.css">
 </head>
 
 <body>
+    <!-- Database connection -->
+    <?php include 'partials/_dbconnect.php';?>
     <!-- Header connection -->
     <?php include '_header.php' ?>
     <!-- Top Content -->
@@ -29,13 +31,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </section>
     <!-- Course Information -->
     <div class="container my-5">
+        <?php
+            if (isset($_GET['course_id'])) {
+                $course_id = $_GET['course_id'];
+                $sql = "SELECT * FROM `courses` WHERE `c_id`='$course_id'";
+                $result = mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($result);
+            }
+        ?>
         <div class="row">
             <div class="col-md-8">
-                <h3>Course Name: Python</h3>
-                <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, nisi.</p>
+                <h3>Course Name: <?php echo $row['c_name'] ?></h3>
+                <p>Description: <?php echo $row['c_desc'] ?></p>
             </div>
             <div class="col-md-4 text-right">
-                <a href="#" class="btn btn-primary">Start Course</a>
+            <a href="watchCourse.php?course_id=<?php echo $course_id; ?>" class="btn btn-primary">Start Course</a>
             </div>
         </div>
     </div>
@@ -49,22 +59,25 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="text-center">Python Introduction</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="text-center">Python Introduction</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="text-center">Python Introduction</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="text-center">Python Introduction</td>
-                </tr>
+                <?php
+                    $sql = "SELECT * FROM `lessons`";
+                    $result = mysqli_query($conn, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        $sno = 0;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($course_id == $row['course_id']) {
+                                $sno+=1;
+                                echo '<tr>
+                                <th scope="row">'. $sno .'</th>
+                                <td class="text-center">'. $row['lesson_name'] .'</td>
+                            </tr>';
+                            }
+                        }
+                    }
+
+                ?>
+                
+                
                 
             </tbody>
         </table>

@@ -1,0 +1,11 @@
+.top-content {
+    background-image: url('https://preview.colorlib.com/theme/academia/images/bg_1.jpg.webp');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    height: 28rem;
+    background-attachment: fixed;
+}
+.course-row{
+    margin-left: 153px;
+}

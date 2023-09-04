@@ -55,7 +55,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #CAEDFF;">
     <div class="container d-flex justify-content-center align-items-center vh-100">
             <form id="signupForm" class="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <p class="title">Register </p>
