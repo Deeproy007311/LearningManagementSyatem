@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Watch Course</title>
     <!-- Bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -20,9 +20,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <!-- Database connection -->
     <?php include 'partials/_dbconnect.php';?>
 
-    <div class="container-fluid bg-success p-2">
+    <div class="container-fluid p-2" style="background-color: #337CCF;">
         <h3>Welcome to CodexLearns</h3>
         <a href="studentCourses.php" class="btn btn-danger">Courses</a>
+        
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -43,12 +44,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         }
                     }
                     ?>
+                    <a href="studentQuiz.php?course_id=<?php echo $course_id; ?>" class="btn btn-success">Start Quiz</a>
                 </ul>
             </div>
             <div class="col-sm-8">
                 <video id="videoarea" src="" class="mt-5 w-75 ml-2" controls></video>
             </div>
         </div>
+        
     </div>
 
     <!-- Bootstrap JS -->
