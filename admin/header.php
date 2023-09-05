@@ -35,12 +35,14 @@ if ($loggedin) {
         </li>
       </ul>
       <form class="d-flex">
+      <p class="mb-0 me-3" >Welcome ' . $_SESSION['admin_email'] . '</p>
       <a href="adminlogout.php" class="btn btn-danger">Logout</a>
       </form>
       </div>
     </div>
   </nav>';
 }
+
       
 
 ?>
