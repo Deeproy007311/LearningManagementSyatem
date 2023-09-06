@@ -33,16 +33,20 @@ if ($loggedin) {
         <li class="nav-item">
           <a class="nav-link" href="adminchangepass.php">change Password</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="quiz.php">Add Quiz</a>
+        </li>
+         
       </ul>
       <form class="d-flex">
-      <p class="mb-0 me-3" >Welcome ' . $_SESSION['admin_email'] . '</p>
       <a href="adminlogout.php" class="btn btn-danger">Logout</a>
       </form>
+      
       </div>
     </div>
   </nav>';
 }
 
-      
+     
 
 ?>

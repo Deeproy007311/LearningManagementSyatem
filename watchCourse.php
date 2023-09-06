@@ -44,7 +44,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         }
                     }
                     ?>
-                    <a href="studentQuiz.php?course_id=<?php echo $course_id; ?>" class="btn btn-success">Start Quiz</a>
+                    <a href="courseQuiz.php?course_id=<?php echo $course_id; ?>" class="btn btn-success">Start Quiz</a>
                 </ul>
             </div>
             <div class="col-sm-8">
