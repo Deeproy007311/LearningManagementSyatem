@@ -16,7 +16,6 @@
                 $_SESSION['loggedin'] = true;
                 $_SESSION['id'] = $row['student_id'];
                 $_SESSION['student_email'] = $student_email;
-                $_SESSION['student_name'] = $student_email;
                 header("Location: index.php");
                 exit();
             }else {

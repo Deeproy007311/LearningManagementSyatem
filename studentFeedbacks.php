@@ -1,26 +1,62 @@
 <?php
-session_start();
-session_regenerate_id(true);
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header("Location: index.php"); // Redirect to the index page
-    exit();
+if (!isset($_SESSION)) {
+  session_start();
+  session_regenerate_id(true);
+}
+
+
+include 'partials/_dbconnect.php';
+
+
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
+    $student_email = $_SESSION['student_email'];
+}else {
+  header("Location: index.php");
+  exit;
+}
+
+$sql="SELECT * FROM `students` WHERE `student_email`='$student_email'";
+$result = mysqli_query($conn,$sql);
+if(mysqli_num_rows($result) == 1){
+  $row = mysqli_fetch_assoc($result);
+  $student_id = $row['student_id'];
+}
+if (isset($_REQUEST['submitFeedbackBtn'])) {
+  $f_content = $_REQUEST['f_content'];
+  $sql = "INSERT INTO `feedbacks`(`f_content`, `student_id`) VALUES ('$f_content','$student_id')";
+  if (mysqli_query($conn,$sql) == true) {
+      $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success</strong> Your feedback has been submitted successfully
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+  }else {
+    $msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error</strong> Try again
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+  }
 }
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Feedback</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
-    <!-- Header connection -->
-    <?php include '_header.php' ?>
-    <div class="container">
-        <h2>Feedback</h2>
-        <h2>Developing in progress</h2>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <?php include 'stuInclude/stuHeader.php'; ?>
+        <div class="col-sm-6 mt-5">
+            <form class="mx-5" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="student_id">Student ID</label>
+                    <input class="form-control" type="text" name="student_id" id="student_id" value="<?php if (isset($student_id)) {
+            echo $student_id;
+          }?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="f_content">Write Feedback</label>
+                    <textarea class="form-control" name="f_content" id="f_content" row=2 required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="submitFeedbackBtn">Update</button>
+                <?php if (isset($msg)) {
+          echo $msg;
+        }?>
+            </form>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>

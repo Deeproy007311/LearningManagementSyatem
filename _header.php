@@ -31,16 +31,6 @@
                 <li class="nav-item">
                     <?php
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                        echo '<a class="nav-link  fs-5" href="studentFeedbacks.php">Feedback</a>';
-                    }else {
-                        echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">Feedback</a>';
-                    }
-                    ?>
-                    
-                </li>
-                <li class="nav-item">
-                    <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                         echo '<a class="nav-link  fs-5" href="contact.php">Contact</a>';
                     }else {
                         echo '<a class="nav-link  fs-5" href="#" onclick="showAlert()">Contact</a>';
@@ -52,7 +42,7 @@
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo '<div class="d-flex">';
-                echo '<p class="mb-0 me-3" >Welcome ' . $_SESSION['student_email'] . '</p>';
+                echo '<p class="mb-0 me-3" >Welcome <a href="studentProfile.php">' . $_SESSION['student_email'] . '</a></p>';
                 echo '<a href="studentLogout.php" type="button" class="btn btn-danger mx-2">Logout</a>';
                 echo '</div>';
             } else {
@@ -64,6 +54,7 @@
             ?>
         </div>
     </div>
+    
 </nav>
 <script>
 function showAlert() {
