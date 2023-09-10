@@ -52,7 +52,7 @@ if (isset($_REQUEST['submitFeedbackBtn'])) {
                     <label for="f_content">Write Feedback</label>
                     <textarea class="form-control" name="f_content" id="f_content" row=2 required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" name="submitFeedbackBtn">Update</button>
+                <button type="submit" class="btn btn-primary" name="submitFeedbackBtn">Send</button>
                 <?php if (isset($msg)) {
           echo $msg;
         }?>

@@ -1,24 +1,65 @@
 <?php
-session_start();
-session_regenerate_id(true);
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header("Location: index.php"); // Redirect to the index page
-    exit();
+if (!isset($_SESSION)) {
+  session_start();
+  session_regenerate_id(true);
+}
+
+
+include 'partials/_dbconnect.php';
+
+
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
+    $student_email = $_SESSION['student_email'];
+}else {
+  header("Location: index.php");
+  exit;
+}
+if (isset($_REQUEST['studentPassUpdateBtn'])) {
+  $sql="SELECT * FROM `students` WHERE `student_email`='$student_email'"; 
+  $result = mysqli_query($conn,$sql);
+  if (mysqli_num_rows($result) == 1) {
+    $studentNewPass = $_REQUEST['studentNewPass'];
+    $hash = password_hash($studentNewPass, PASSWORD_DEFAULT);
+    $sql = "UPDATE `students` SET `password`='$hash' WHERE `student_email`='$student_email'";
+    if (mysqli_query($conn,$sql) == true) {
+        $msg= '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success</strong> Your password has been changed successfully
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+    }else {
+      $msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error</strong> Can not update password! Try again.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+    }
+  }
 }
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student_name Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-        <h2>Student ChangePass</h2>
-        <h2>Developing in progress</h2>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+    <?php include 'stuInclude/stuHeader.php'; ?>
+        <div class="col-sm-9 col-md-10">
+            <div class="row">
+                <div class="col-sm-6">
+                    <form action="" class="mt-5 mx-5" method="post">
+                        <div class="form-group">
+                            <label for="inputemail">Email</label>
+                            <input class="form-control" type="email" name="" id="student_email"
+                                value="<?php echo $student_email; ?>" readonly>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="studentNewPass">New Password</label>
+                            <input type="password" name="studentNewPass" id="studentNewPass" class="form-control">
+                        </div>
+                        <input type="submit" class="btn btn-primary my-2" name="studentPassUpdateBtn"
+                            value="Update">
+                        <input type="reset" value="Reset" class="btn btn-secondary my-2">
+                        <?php if (isset($msg)) {
+          echo $msg;
+        }?>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>
