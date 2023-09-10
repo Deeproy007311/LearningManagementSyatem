@@ -44,11 +44,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
               <div class="card-body">
                   <h5 class="card-title">'. $course_name .'</h5>
                   <p class="card-text">' . substr($course_description, 0, 40) . '...</p>
-                  <a href="studentCourseDetails.php?course_id='. $course_id .'" class="btn btn-primary">Enroll</a>
+                  <a href="courseCheckout.php?course_id='. $course_id .'" class="btn btn-primary">Enroll</a>
               </div>
               </div>';
             }
-          
           ?>
         </div>
     </div>

@@ -1,0 +1,8 @@
+.top-content {
+    background-image: url('https://preview.colorlib.com/theme/academia/images/bg_2.jpg.webp');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    height: 28rem;
+    background-attachment: fixed;
+}
