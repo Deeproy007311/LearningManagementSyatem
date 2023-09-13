@@ -32,7 +32,7 @@ if (isset($_GET['course_id'])) {
             <strong>Success!</strong> Your checkout completed. Now you can start your course
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-            <a href="studentCourseDetails.php?course_id='. $course_id .'" class="btn btn-primary">Start Course</a>';
+            <a href="watchCourse.php?course_id='. $course_id .'" class="btn btn-primary">Start Course</a>';
         } else {
             $msg = '<div class="alert alert-danger col-sm-6 ml-5 mt-2" role="alert">Can not checkout</div>';
         }

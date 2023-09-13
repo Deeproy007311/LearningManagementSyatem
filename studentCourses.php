@@ -16,6 +16,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="userPanelCss/courses.css">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/2f671c2a32.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -44,13 +46,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
               <div class="card-body">
                   <h5 class="card-title">'. $course_name .'</h5>
                   <p class="card-text">' . substr($course_description, 0, 40) . '...</p>
-                  <a href="courseCheckout.php?course_id='. $course_id .'" class="btn btn-primary">Enroll</a>
+                  <a href="studentCourseDetails.php?course_id='. $course_id .'" class="btn btn-primary">Enroll</a>
               </div>
               </div>';
             }
           ?>
         </div>
     </div>
+    <!-- ======= Footer ======= -->
+    <?php include '_footer.php';?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
